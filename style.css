@@ -1,0 +1,368 @@
+:root {
+  --blue: #0011ff;
+  --text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.589);
+  --text-shadow-hover: 0 0 90px white;
+  --glass-background: rgba(90, 90, 90, 0.13);
+  --glass-background-hover: rgba(90, 90, 90, 0.336);
+  /* --text-color: blue; */
+  /* --text-color: #06379d; */
+  /* --text-color: #539bfd; */
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* font-family: serif; */
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+/*** Background with animated stars ***/
+#twinklingStars {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.container {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.navbar {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background-color: #10111aa2;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo,
+#about {
+  display: flex;
+  /* transition: 0.5s ease-in-out; */
+  /* transition-duration: 0.6s; */
+  align-items: center;
+}
+
+#logo-text,
+#about {
+  color: var(--blue);
+  text-decoration: none;
+  text-shadow: var(--text-shadow);
+  transition: 0.6s;
+}
+
+/* .about {
+  text-decoration: none;
+  color: var(--text-color);
+  text-shadow: var(--text-shadow);
+  transition: 0.6s;
+} */
+
+@media (hover: hover) {
+  /* img:hover, */
+  #logo-text:hover,
+  #about:hover,
+  .card:hover {
+    /* color: #fff; */
+    text-shadow: var(--text-shadow-hover);
+  }
+}
+
+#world-logo {
+  text-shadow: var(--text-shadow-hover);
+  /* width: 50px; */
+  /* height: 50px; */
+}
+
+#logo-text {
+  padding-left: 0.9rem;
+  text-shadow: 2px 1px 2px rgba(209, 209, 209, 0.726);
+  /* font-size: 72px; */
+  background: -webkit-linear-gradient(#0710a1, #07a16e);
+  -webkit-background-clip: text;
+  /* -webkit-text-fill-color: transparent; */
+}
+
+#world-logo,
+#logo-text:hover {
+  color: var(--blue);
+  filter: drop-shadow(5px 5px 3px rgb(255, 255, 255));
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* 
+@media (hover: hover) {
+  img:hover,
+  .logo:hover,
+  .about:hover {
+    color: #fff;
+    text-shadow: var(--text-shadow);
+  }
+} */
+
+/* .logo:active {
+  color: #fff;
+} */
+
+/* img:hover {
+  filter: drop-shadow(5px 5px 5px rgb(255, 255, 255));
+  width: 50px;
+  height: 50px;
+} */
+
+.country-search-box {
+  /* margin-top: 2rem; */
+  width: 14rem;
+  height: 2rem;
+  border: 1px solid var(--blue);
+  border-radius: 30px;
+  background-color: var(--glass-background);
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+}
+
+.country-search-box:active {
+  text-shadow: var(--text-shadow-hover);
+}
+
+.country-search-box > i {
+  color: white;
+  padding-left: 0.5rem;
+  /* color: var(--blue) */
+}
+
+.country-search-box > input {
+  color: white;
+  flex: 1;
+  border: none;
+  outline: none;
+  padding-left: 0.7rem;
+  outline-color: var(--blue);
+  background-color: var(--glass-background);
+  /* margin-left: 1rem; */
+}
+/* header,
+main {
+  box-sizing: border-box;
+} */
+
+#regions {
+  color: rgba(245, 245, 245, 0.541);
+  font-size: 1rem;
+  font-weight: 700;
+
+  border: 1px solid #1128f8f8;
+  border-radius: 30px;
+  /* 
+  background-color: rgba(3, 3, 3, 0);
+  border: 1px solid rgba(3, 3, 3, 0); */
+  padding: 10px;
+  background: var(--glass-background);
+  transition: 0.5s;
+  /* border: none; */
+}
+
+option:hover {
+  background: rgba(248, 19, 19, 0.171);
+}
+
+option {
+  margin-left: 1rem;
+  color: black;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  color: var(--blue);
+}
+
+.svg-world {
+  transform: scale(0.7);
+  /* width: 60%;
+  height: auto; */
+  max-width: 500px;
+}
+
+/* select:hover::after {
+  color: #1fb71b;
+} */
+
+/* option:hover {
+  background-color: red;
+  border: solid 2px #ed1d25;
+} */
+
+#opt-all {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+#opt-americas {
+  background-color: #f9a825e7;
+}
+
+#opt-africa {
+  background-color: #20b71bab;
+}
+
+#opt-asia {
+  background-color: #f9f525d5;
+}
+
+#opt-oceania {
+  background-color: #cf40ff;
+  /* color: #54311d; */
+  /* color: #c033a4; */
+}
+/* background-color: #ab6f21; */
+
+#opt-europe {
+  background-color: #ed1d24;
+}
+
+/* option::selection {
+  background-color: rgba(255, 255, 255, 0.075);
+  color: chartreuse;
+} */
+
+/* ::selection {
+  background-color: #f9a725;
+}
+
+select > #opt-americas::selection {
+  background-color: #f9a725;
+}
+
+#opt-africa::selection {
+  background-color: #1fb71b;
+}
+
+#opt-asia::selection {
+  background-color: #f9f725;
+}
+
+#opt-oceania::selection {
+  background-color: #ab6f21;
+}
+
+#opt-europe::selection {
+  background-color: #ed1d25;
+} */
+/* 
+option:hover {
+  background-color: yellow;
+  box-shadow: 0 0 10px 100px #1882a8 inset;
+}
+
+option {
+  background-color: #82caff;
+} */
+
+/* main {
+  color: rgb(21, 26, 77);
+} */
+/* .svg-world {
+  
+  #world-map {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+  }
+  width: 1000rem;
+} */
+/* .logo {
+  padding-top: 2rem;
+} */
+
+.gallery {
+  margin: auto;
+  width: 95%;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.card {
+  padding: 1rem;
+  height: 200px;
+  color: rgba(204, 202, 200, 0.658);
+  border: 1px solid rgba(255, 255, 255, 0.623);
+  background: var(--glass-background);
+  /* background: rgba(90, 90, 90, 0.336); */
+  overflow: hidden;
+  border-radius: 0.3rem;
+  transition: 0.6s;
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.267),
+      rgba(0, 0, 0, 0)
+    )
+    1 100%;
+  /* width: 350px; */
+  /* margin: auto; */
+}
+.card:hover {
+  /* box-shadow: 0 0 11px rgba(255, 255, 255, 0.89); */
+  color: #fff;
+  background: var(--glass-background-hover);
+  border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgba(0, 0, 0, 0))
+    1 100%;
+  cursor: pointer;
+}
+
+/* .card {
+  overflow: hidden;
+  background-color: aquamarine;
+  border-radius: 0.3rem;
+} */
+
+/* body { */
+/* width: 95%; */
+
+/* margin: auto;
+  background-image: url(img/serenity_5k-1280x720.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
+/* height: 100vh; */
+
+/* background-color: #10111a; */
+/* } */
