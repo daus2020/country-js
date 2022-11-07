@@ -2829,16 +2829,11 @@
           <input type="text" placeholder="Buscar país" id="input-country" />
           <i class="fa-solid fa-magnifying-glass lupa"></i>
         </form>
-        <select
-          name="regions"
-          id="regions"
-          onchange="setBackColorSelect()"
-          id="input-region"
-        >
-          <option class="opt-region" selected disabled>
+        <select name="regions" id="regions" onchange="userRegion()">
+          <option class="opt-region" value="all" selected disabled>
             Seleccionar región
           </option>
-          <option class="opt-region" value="" id="opt-all" default>
+          <option class="opt-region" value="all" id="opt-all" default>
             Todas
           </option>
           <option class="opt-region" value="Americas" id="opt-americas">

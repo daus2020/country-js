@@ -3,7 +3,7 @@ const countries = document.getElementById("countries");
 document.addEventListener("DOMContentLoaded", (e) => {
   fetchData();
 });
-
+// const data = localStorage.getItem("data");
 const fetchData = async () => {
   try {
     const res = await fetch("api.json");
@@ -11,6 +11,7 @@ const fetchData = async () => {
     countryInfo(data);
     console.log(data);
     userCountry(data);
+    localStorage.setItem("data", JSON.stringify(data));
     userRegion(data);
   } catch (error) {
     console.log(error);

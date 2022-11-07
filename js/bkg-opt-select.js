@@ -1,7 +1,8 @@
 // *** background select by region selected ***
-const setBackColorSelect = () => {
+const userRegion = (data) => {
+  // const userRegion = (data) => {
   let regionColors = [
-    "#fff",
+    "#f5f5f5",
     "#fff",
     "#f9a725",
     "#1fb71b",
@@ -17,17 +18,19 @@ const setBackColorSelect = () => {
   let selectedRegion = document.getElementById("regions").value;
   console.log(selectedRegion);
 
-  // console.log(data);
-
-  // const filterRegion = data.map((el) => {
-  //   const apiRegion = el.region;
-  //   if (apiRegion === selectedRegion) {
-  //     return el;
-  //   }
-  // });
-  // countryInfo(filterRegion);
+  console.log(data);
+  let allData = JSON.parse(localStorage.getItem("data"));
+  const filterRegion = allData.filter((el) => {
+    const apiRegion = el.region;
+    if (selectedRegion === "all") {
+      return allData;
+    }
+    if (apiRegion === selectedRegion) {
+      return el;
+    }
+  });
+  countryInfo(filterRegion);
 };
-
 // console.log(filterLetters);
 
 // let valueSelected =

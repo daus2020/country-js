@@ -2,10 +2,14 @@
 
 const country = document.getElementById("country");
 const inputCountry = document.getElementById("input-country");
+let regions = document.getElementById("regions");
 
 const userCountry = (data) => {
   country.addEventListener("keyup", (e) => {
     e.preventDefault();
+    regions.value = "all";
+    regions.style.color = "#f5f5f5";
+
     const userLetter = inputCountry.value.toLowerCase();
     // console.log(userLetter);
 
