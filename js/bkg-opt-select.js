@@ -2,7 +2,7 @@
 const userRegion = (data) => {
   // const userRegion = (data) => {
   let regionColors = [
-    "#f5f5f5",
+    "#958c8c",
     "#fff",
     "#f9a725",
     "#1fb71b",

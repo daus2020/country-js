@@ -202,7 +202,7 @@ main {
   box-sizing: border-box;
 } */
 
-select {
+#placeholderSelect {
   color: whitesmoke;
 }
 
@@ -224,7 +224,7 @@ select {
 }
 
 #regions:disabled {
-  color: whitesmoke;
+  color: rgb(10, 223, 10);
 }
 
 #regions:active,

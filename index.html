@@ -2830,7 +2830,14 @@
           <i class="fa-solid fa-magnifying-glass lupa"></i>
         </form>
         <select name="regions" id="regions" onchange="userRegion()">
-          <option class="opt-region" value="all" selected disabled>
+          <option
+            class="opt-region"
+            id="placeholderRegion"
+            value="all"
+            selected
+            disabled
+            hidden
+          >
             Seleccionar región
           </option>
           <option class="opt-region" value="all" id="opt-all" default>

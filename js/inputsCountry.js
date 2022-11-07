@@ -8,7 +8,8 @@ const userCountry = (data) => {
   country.addEventListener("keyup", (e) => {
     e.preventDefault();
     regions.value = "all";
-    regions.style.color = "#f5f5f5";
+    regions.text = "TODAS";
+    regions.style.color = "#958c8c";
 
     const userLetter = inputCountry.value.toLowerCase();
     // console.log(userLetter);
