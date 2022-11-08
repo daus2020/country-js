@@ -2,9 +2,32 @@
 
 const details = document.getElementById("details");
 const params = new URLSearchParams(window.location.search);
-const query = params.get("name");
-console.log(query);
+const queryName = params.get("name");
+console.log(queryName);
 
+let allData = JSON.parse(localStorage.getItem("allData"));
+
+const filterCountry = allData.filter((el) => {
+  if (el.name.common === queryName) return el;
+});
+
+const countryCard = (country) => {
+  let card = `
+  <img src="${country.flags.svg}" alt="flag" class="flag-fluid" />
+  <h3>${country.name.common}</h3>
+  <p>
+  <b>Population: </b> <span>${country.population}</span>
+  <br />
+  <b>Región: </b>${country.region}</span>
+  <br />
+  <b>Capital: </b> <span>${country.capital}</span>
+  </p>
+  `;
+
+  details.innerHTML = card;
+};
+
+countryCard(filterCountry);
 // console.log(el.name.common);
 
 // const clickCard = () => {

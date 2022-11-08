@@ -8,10 +8,10 @@ const fetchData = async () => {
   try {
     const res = await fetch("api.json");
     const data = await res.json();
+    localStorage.setItem("allData", JSON.stringify(data));
     countryCards(data);
     console.log(data);
     userCountryLetters(data);
-    // localStorage.setItem("data", JSON.stringify(data));
     userRegion(data);
     // clickCard(data);
   } catch (error) {

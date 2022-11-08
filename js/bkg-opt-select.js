@@ -1,5 +1,5 @@
 // *** background select by region selected ***
-const userRegion = (data) => {
+const userRegion = () => {
   // const userRegion = (data) => {
   let regionColors = [
     "#958c8c",
@@ -18,8 +18,8 @@ const userRegion = (data) => {
   let selectedRegion = document.getElementById("regions").value;
   console.log(selectedRegion);
 
-  console.log(data);
-  let allData = JSON.parse(localStorage.getItem("data"));
+  // console.log(data);
+  let allData = JSON.parse(localStorage.getItem("allData"));
   const filterRegion = allData.filter((el) => {
     const apiRegion = el.region;
     if (selectedRegion === "all") {
