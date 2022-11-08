@@ -184,8 +184,8 @@ header {
   outline-color: white;
 } */
 
-#country:focus-within
-/* .country-search-box:active, */
+/* #country:focus-within */
+.country-search-box:focus-within
 /* .country-search-box:target  */ {
   /* text-shadow: var(--text-shadow-hover); */
   color: #fff;

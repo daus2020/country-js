@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Escalab API challenge</title>
+    <link
+      rel="shortcut icon"
+      href="img/worldGreenBlue.ico"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <video autoplay loop muted id="twinklingStars">
+      <source src="video/TwinklingStars.mp4" type="video/mp4" />
+    </video>
+    <nav class="navbar">
+      <!-- <i class="fa-solid fa-globe"></i>
+      <br />
+      <i class="fa-solid fa-earth-americas fa-2xl"></i> -->
+      <!-- <i class="fa-solid fa-earth-americas fa-4x logo"> </i> -->
+      <a class="logo" href="index.html">
+        <img
+          id="world-logo"
+          src="img/worldy.png"
+          alt="search country globe logo"
+          width="50px"
+        />
+        <!-- <i class="fa-solid fa-earth-americas fa-1x logo-world"> </i> -->
+        <p id="logo-text">Country-Searcher</p>
+      </a>
+      <a id="about" href="#">About</a>
+    </nav>
+    <header>
+      <a href="index.html">
+        <i class="fa-solid fa-arrow-rotate-left"></i> Volver
+      </a>
+    </header>
+    <main class="container" id="details">
+      <!-- <img src="${el.flags.svg}" alt="flag" class="flag-fluid" /> -->
+      <!-- <h3>${el.name.common}</h3> -->
+    </main>
+    <!-- <article class="card"> -->
+    <!-- <h3>${el.name.common}</h3>
+    <p>
+      <b>Population: </b> <span>${el.population}</span>
+      <br />
+      <b>Región: </b>${el.region}</span>
+      <br />
+      <b>Capital: </b> <span>${el.capital}</span>
+    </p>
+    </article> -->
+
+    <script src="js/details.js"></script>
+  </body>
+</html>

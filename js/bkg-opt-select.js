@@ -29,7 +29,7 @@ const userRegion = (data) => {
       return el;
     }
   });
-  countryInfo(filterRegion);
+  countryCards(filterRegion);
 };
 // console.log(filterLetters);
 
