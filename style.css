@@ -416,3 +416,25 @@ option {
 
 /* background-color: #10111a; */
 /* } */
+
+.leftDetails {
+  max-width: 25%;
+  min-width: 15%;
+}
+
+/* .leftDetails {
+  width: 300px;
+} */
+
+.flagInfo {
+  width: 100%;
+}
+
+.countryInfo {
+  color: white;
+  background: var(--glass-background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem;
+}

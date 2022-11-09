@@ -1,14 +1,15 @@
 const countries = document.getElementById("countries");
+const URL = "https://restcountries.com/v3.1/all";
 
-document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener("DOMContentLoaded", () => {
   fetchData();
 });
-// const data = localStorage.getItem("data");
+
 const fetchData = async () => {
   try {
-    const res = await fetch("api.json");
-    const data = await res.json();
-    localStorage.setItem("allData", JSON.stringify(data));
+    const res = await fetch(URL); // sending request
+    const data = await res.json(); // converting data to json
+    localStorage.setItem("allData", JSON.stringify(data)); //store data in localstorage
     countryCards(data);
     console.log(data);
     userCountryLetters(data);
@@ -25,7 +26,7 @@ const countryCards = (data) => {
     cards += `
     <a href="details.html?name=${el.name.common}"> 
       <article class="card">
-        <img src="${el.flags.svg}" alt="flag" class="flag-fluid" />
+        <img src="${el.flags.svg}" alt="country flag" class="flag-fluid" />
         <h3>${el.name.common}</h3>
         <p>
           <b>Population: </b> <span>${el.population}</span>
