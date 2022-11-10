@@ -318,6 +318,18 @@ option {
   padding-top: 2rem;
 } */
 
+/* anchor to home in details.html */
+#back {
+  padding: 1rem;
+  transition: ease-in-out 0.5s;
+}
+#back:hover {
+  color: #fff;
+  text-shadow: var(--text-shadow-hover);
+  /* background: var(--glass-background-hover); */
+  border-radius: 5px;
+}
+
 .gallery {
   margin: auto;
   width: 95%;
