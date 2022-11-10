@@ -23,18 +23,17 @@ const fetchData = async () => {
 const countryCards = (data) => {
   let cards = "";
   data.forEach((el) => {
+    let population = new Intl.NumberFormat("de-DE").format(el.population);
     cards += `
     <a href="details.html?name=${el.name.common}"> 
       <article class="card">
         <img src="${el.flags.svg}" alt="country flag" class="flag-fluid" />
-        <h3>${el.name.common}</h3>
-        <p>
-          <b>Population: </b> <span>${el.population}</span>
-          <br />
-          <b>Región: </b>${el.region}</span>
-          <br />
-          <b>Capital: </b> <span>${el.capital}</span>
-        </p>
+        <div class="info-card">
+          <h3>${el.name.common}</h3>
+          <p><b>Población: </b> <span>${population}</span> </p>
+          <p><b>Región: </b>${el.region}</span></p> 
+          <p><b>Capital: </b> <span>${el.capital}</span></p> 
+        </div>
       </article>
     </a>
     `;

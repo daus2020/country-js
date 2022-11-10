@@ -16,10 +16,12 @@ const userRegion = () => {
   selected.style.color = regionColor;
   // selected.style.border = color;
   let selectedRegion = document.getElementById("regions").value;
+  document.getElementById("input-country").value = "";
   console.log(selectedRegion);
 
-  // console.log(data);
+  // call data from localStorage (recorded when fetch api)
   let allData = JSON.parse(localStorage.getItem("allData"));
+
   const filterRegion = allData.filter((el) => {
     const apiRegion = el.region;
     if (selectedRegion === "all") {

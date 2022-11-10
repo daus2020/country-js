@@ -36,7 +36,7 @@ const filterCountry = allData.filter((el) => {
           <p><b>Sub-región: </b> ${el.subregion}</p>
         </div>
         <div class="innerRight">
-          <p><b>Population: </b> ${population}</p>
+          <p><b>Población: </b> ${population}</p>
           <p><b>Moneda: </b> ${currency}</p>
           <p><b>Idioma: </b> ${language}</p>
           <p><b>Fifa: </b> ${el.fifa}</p>
