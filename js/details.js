@@ -13,7 +13,12 @@ const filterCountry = allData.filter((el) => {
 
     const keyCurrency = Object.keys(currencies)[0];
     const currencyQuotes = JSON.stringify(el.currencies[keyCurrency].name);
-    const currency = currencyQuotes.replace(/["]/g, "");
+    const symbolCurrencyQuotes = JSON.stringify(
+      el.currencies[keyCurrency].symbol
+    );
+
+    const currency = currencyQuotes.replace(/["]/g, ""); // just removing quotes
+    const symbol = symbolCurrencyQuotes.replace(/["]/g, ""); // just removing quotes
 
     const keyLanguage = Object.keys(languages)[0];
     const languageQuotes = JSON.stringify(el.languages[keyLanguage]);
@@ -21,8 +26,6 @@ const filterCountry = allData.filter((el) => {
     console.log(language);
 
     const population = new Intl.NumberFormat("de-DE").format(el.population);
-
-    console.log(typeof currency);
 
     printCountry = `
         <div class="leftDetails">
@@ -37,7 +40,8 @@ const filterCountry = allData.filter((el) => {
           </div>
           <div class="innerRight">
             <p><b>Población: </b> ${population}</p>
-            <p><b>Moneda: </b> ${currency}</p>
+            <p><b>Moneda: </b> ${currency} </p>
+            <p><b>Símbolo moneda: </b> ${symbol} </p>
             <p><b>Idioma: </b> ${language}</p>
             <p><b>Fifa: </b> ${el.fifa}</p>
           </div>

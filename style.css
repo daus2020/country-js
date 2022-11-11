@@ -519,3 +519,9 @@ option {
     margin: 0 auto;
   }
 }
+
+@media (min-width: 565px) {
+  .leftDetails {
+    height: 40%;
+  }
+}
