@@ -25,23 +25,23 @@ const filterCountry = allData.filter((el) => {
     console.log(typeof currency);
 
     printCountry = `
-      <div class="countryInfo">
         <div class="leftDetails">
           <img src="${el.flags.svg}" alt="country flag" class="flagInfo" />
         </div>
-        <div class="innerLeft">
-          <h3>${countryName}</h3>
-          <p><b>Capital: </b> ${el.capital}</p>
-          <p><b>Región: </b> ${el.region}</p>
-          <p><b>Sub-región: </b> ${el.subregion}</p>
+        <div className="inner">
+          <div class="innerLeft">
+            <h3>${countryName}</h3>
+            <p><b>Capital: </b> ${el.capital}</p>
+            <p><b>Región: </b> ${el.region}</p>
+            <p><b>Sub-región: </b> ${el.subregion}</p>
+          </div>
+          <div class="innerRight">
+            <p><b>Población: </b> ${population}</p>
+            <p><b>Moneda: </b> ${currency}</p>
+            <p><b>Idioma: </b> ${language}</p>
+            <p><b>Fifa: </b> ${el.fifa}</p>
+          </div>
         </div>
-        <div class="innerRight">
-          <p><b>Población: </b> ${population}</p>
-          <p><b>Moneda: </b> ${currency}</p>
-          <p><b>Idioma: </b> ${language}</p>
-          <p><b>Fifa: </b> ${el.fifa}</p>
-        </div>
-      <div>
           `;
   }
   details.innerHTML = printCountry;
