@@ -2,18 +2,20 @@ const countries = document.getElementById("countries");
 const URL = "https://restcountries.com/v3.1/all";
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetchData();
+  let hasData = localStorage.getItem("allData");
+  hasData ? countryCards(hasData) : fetchData();
+  // fetchData();
 });
 
 const fetchData = async () => {
   try {
+    console.log("Hi fetchData");
     const res = await fetch(URL); // sending request
     const data = await res.json(); // converting data to json
-    localStorage.setItem("allData", JSON.stringify(data)); //store data in localstorage
     countryCards(data);
-    console.log(data);
-    userCountryLetters(data);
-    userRegion(data);
+    localStorage.setItem("allData", JSON.stringify(data)); //store data in localstorage
+    // userCountryLetters(data);
+    // userRegion(data);
     // clickCard(data);
   } catch (error) {
     console.log(error);
@@ -30,9 +32,10 @@ const countryCards = (data) => {
         <img src="${el.flags.svg}" alt="country flag" class="flag-fluid" />
         <div class="info-card">
           <h3>${el.name.common}</h3>
-          <p><b>Población: </b> <span>${population}</span> </p>
-          <p><b>Región: </b>${el.region}</span></p> 
-          <p><b>Capital: </b> <span>${el.capital}</span></p> 
+          
+          <p><b>Población: </b> <span>${population}</span>
+          <b>Región: </b>${el.region}</span> 
+          <b>Capital: </b> <span>${el.capital}</span></p> 
         </div>
       </article>
     </a>
