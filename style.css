@@ -25,7 +25,14 @@ body {
   margin: 0;
   padding: 0;
   background-color: #00000000;
+  /* display: flex;
+  flex-direction: column; */
   /* font-family: serif; */
+}
+
+main {
+  /* display: inline-block; */
+  min-height: 55vh;
 }
 
 a,
@@ -41,7 +48,7 @@ a:active {
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  z-index: -1;
+  z-index: -10;
 }
 
 .container {
@@ -57,9 +64,17 @@ a:active {
   display: flex;
   justify-content: space-around;
   padding: 1rem;
-  background-color: #10111a9a;
+  background-color: var(--glass-background);
+  /* background-color: #10111a9a; */
   align-items: center;
   text-decoration: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar + .container {
+  padding-top: 82px;
 }
 
 .logo {
@@ -188,9 +203,9 @@ main {
   /* border: none; */
 }
 
-/* #regions:disabled {
+#regions:disabled {
   color: rgb(10, 223, 10);
-} */
+}
 
 #regions:active,
 #regions:focus {
@@ -198,6 +213,7 @@ main {
   /* color: #fff; */
   border: 2px solid white;
   outline: none;
+  border-color: #fff;
   /* background-color: #ffffff; */
 }
 
@@ -221,6 +237,7 @@ option {
   /* width: 60%;
   height: auto; */
   max-width: 500px;
+  z-index: -1;
 }
 
 /* select:hover::after {
@@ -259,61 +276,7 @@ option {
   background-color: #ed1d24;
 }
 
-/* option::selection {
-  background-color: rgba(255, 255, 255, 0.075);
-  color: chartreuse;
-} */
-
-/* ::selection {
-  background-color: #f9a725;
-}
-
-select > #opt-americas::selection {
-  background-color: #f9a725;
-}
-
-#opt-africa::selection {
-  background-color: #1fb71b;
-}
-
-#opt-asia::selection {
-  background-color: #f9f725;
-}
-
-#opt-oceania::selection {
-  background-color: #ab6f21;
-}
-
-#opt-europe::selection {
-  background-color: #ed1d25;
-} */
-/* 
-option:hover {
-  background-color: yellow;
-  box-shadow: 0 0 10px 100px #1882a8 inset;
-}
-
-option {
-  background-color: #82caff;
-} */
-
-/* main {
-  color: rgb(21, 26, 77);
-} */
-/* .svg-world {
-  
-  #world-map {
-    width: 100%;
-    height: auto;
-    max-width: 600px;
-  }
-  width: 1000rem;
-} */
-/* .logo {
-  padding-top: 2rem;
-} */
-
-/* anchor to home in details.html */
+/* click to back  home */
 #back {
   padding: 1rem;
   transition: ease-in-out 0.5s;
@@ -382,29 +345,11 @@ option {
   cursor: pointer;
 }
 
-.flag-fluid {
+.flag {
   width: 100%;
   max-height: 11rem;
   margin: 0;
 }
-
-/* .card {
-  overflow: hidden;
-  background-color: aquamarine;
-  border-radius: 0.3rem;
-} */
-
-/* body { */
-/* width: 95%; */
-
-/* margin: auto;
-  background-image: url(img/serenity_5k-1280x720.jpg);
-  background-repeat: no-repeat;
-  background-size: cover; */
-/* height: 100vh; */
-
-/* background-color: #10111a; */
-/* } */
 
 .leftDetails {
   /* max-width: 25%; */
@@ -414,10 +359,6 @@ option {
   /* padding-right: 0; */
   /* padding: 0 auto; */
 }
-
-/* .leftDetails {
-  width: 300px;
-} */
 
 .flagInfo {
   height: 100%;
@@ -433,6 +374,18 @@ option {
   padding: 0.3rem;
   max-width: 800px;
   min-height: 300px;
+}
+
+footer {
+  width: 100%;
+  /* position: absolute; */
+  /* bottom: 0; */
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: var(--glass-background);
+  display: block;
+  text-align: center;
+  min-height: auto;
 }
 
 @media (max-width: 564px) {
@@ -487,7 +440,7 @@ option {
     text-align: center;
     padding: auto;
   } */
-  .flag-fluid {
+  .flag {
     max-height: 100%;
     /* height: 10rem; */
     min-width: 270px;
@@ -511,7 +464,7 @@ option {
     justify-content: space-between;
     height: 24rem;
   }
-  .flag-fluid {
+  .flag {
     height: 14rem;
     width: 92%;
     min-width: 150px;

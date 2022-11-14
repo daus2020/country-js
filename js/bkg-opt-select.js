@@ -14,23 +14,28 @@ const userRegion = () => {
   let regionColor = regionColors[index];
   let selected = document.getElementById("regions");
   selected.style.color = regionColor;
-  // selected.style.border = color;
   let selectedRegion = document.getElementById("regions").value;
+
   document.getElementById("input-country").value = "";
   console.log(selectedRegion);
 
   // call data from localStorage (recorded when fetch api)
   let allData = JSON.parse(localStorage.getItem("allData"));
+  console.log(allData);
 
   const filterRegion = allData.filter((el) => {
-    const apiRegion = el.region;
+    // const apiRegion = el.region;
     if (selectedRegion === "all") {
       return allData;
     }
-    if (apiRegion === selectedRegion) {
+    if (el.region === selectedRegion) {
+      // if (apiRegion === selectedRegion) {
       return el;
     }
   });
+  console.log(filterRegion);
+  console.log(typeof filterRegion);
+
   countryCards(filterRegion);
 };
 // console.log(filterLetters);
