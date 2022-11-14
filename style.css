@@ -94,8 +94,7 @@ a:active {
 
 @media (hover: hover) {
   /* img:hover, */
-  #logo-text:hover,
-  #about:hover {
+  #logo-text:hover {
     color: #fff;
     text-shadow: var(--text-shadow-hover);
   }
@@ -114,6 +113,7 @@ a:active {
   /* font-size: 72px; */
   /* background: -webkit-linear-gradient(#0710a1, #07a16e); */
   -webkit-background-clip: text;
+
   /* -webkit-text-fill-color: transparent; */
 }
 
