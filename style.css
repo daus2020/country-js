@@ -112,6 +112,7 @@ a:active {
   text-shadow: 2px 1px 2px rgba(209, 209, 209, 0.726);
   /* font-size: 72px; */
   /* background: -webkit-linear-gradient(#0710a1, #07a16e); */
+  background-clip: border-box;
   -webkit-background-clip: text;
 
   /* -webkit-text-fill-color: transparent; */
@@ -166,14 +167,14 @@ header {
 
 .country-search-box:focus-within
 /* .country-search-box:target  */ {
-  /* text-shadow: var(--text-shadow-hover); */
-  color: rgb(255, 255, 255);
+  text-shadow: var(--text-shadow-hover);
+  color: black;
   border: 2px solid white;
-  outline: none;
+  /* outline: none; */
   /* background-color: #fff; */
 }
 ::placeholder {
-  /* color: rgba(245, 245, 245, 0.541); */
+  color: rgba(245, 245, 245, 0.541);
   font-size: 1rem;
   font-weight: bold;
 }
@@ -187,7 +188,7 @@ main {
 }
 
 #regions {
-  color: whitesmoke;
+  color: black;
   /* color: rgba(245, 245, 245, 0.541); */
   font-size: 1rem;
   font-weight: bold;
@@ -203,18 +204,22 @@ main {
   /* border: none; */
 }
 
-#regions:disabled {
+/* #regions:disabled {
   color: rgb(10, 223, 10);
-}
+} */
 
-#regions:active,
-#regions:focus {
+#regions:active {
   /* font-size: 13px; */
   /* color: #fff; */
   border: 2px solid white;
   outline: none;
   border-color: #fff;
   /* background-color: #ffffff; */
+}
+
+#regions:focus {
+  color: black;
+  border: 2px solid white;
 }
 
 /* option:hover {
