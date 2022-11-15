@@ -24,15 +24,41 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #00000000;
+  /* background-color: #00000000; */
+
+  /* background-image: url(img/lupaWorldFinal.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: relative; */
+  /* z-index: -5; */
+  /* top: 50%;
+  left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%); */
+
+  
+  /* min-height:100vh; */
+  display: flex;
+  flex-direction: column; 
   /* display: flex;
-  flex-direction: column; */
   /* font-family: serif; */
+}
+
+#watermark{
+  top: 50%;
+  left: 50%;
+  position :fixed;
+  z-index: -5;
+  opacity: 10%;
+  /* margin: auto; */
+
 }
 
 main {
   /* display: inline-block; */
-  min-height: 55vh;
+
+  /* min-height: 55vh; */
+  flex:1;
 }
 
 a,
@@ -392,7 +418,7 @@ footer {
   /* position: absolute; */
   /* bottom: 0; */
   margin-top: 2rem;
-  padding: 2rem;
+  padding: 1rem;
   background-color: var(--glass-background);
   display: block;
   text-align: center;

@@ -134,7 +134,6 @@ const filterCountry = allData.filter((el) => {
             }: </b> ${symbol}</p>
 
             <p><b>Frontera(s): </b> ${el.borders}</p>
-            <p><b>abr.cca3 : </b> ${el.cca3}</p>
           </div>
         </div>
           `;
