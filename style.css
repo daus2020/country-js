@@ -3,11 +3,8 @@
   --text-shadow: 0 0 50px rgba(255, 255, 255, 0.589);
   --text-shadow-hover: 0 0 42px white;
   --box-shadow-hover: 0 0 30px white;
-  --glass-background: rgba(90, 90, 90, 0.13);
+  --glass-background: rgba(126, 126, 126, 0.13);
   --glass-background-hover: rgba(90, 90, 90, 0.336);
-  /* --text-color: blue; */
-  /* --text-color: #06379d; */
-  /* --text-color: #539bfd; */
 }
 
 html {
@@ -26,40 +23,28 @@ body {
   padding: 0;
   /* background-color: #00000000; */
 
-  /* background-image: url(img/lupaWorldFinal.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position: relative; */
-  /* z-index: -5; */
-  /* top: 50%;
-  left: 50%;
-  width: 90%;
-  transform: translate(-50%, -50%); */
-
   
   /* min-height:100vh; */
-  display: flex;
-  flex-direction: column; 
+  /* display: flex;
+  flex-direction: column;  */
   /* display: flex;
   /* font-family: serif; */
 }
 
 #watermark{
   top: 50%;
-  left: 50%;
+  left: calc(50% - 50px) ;
   position :fixed;
   z-index: -5;
   opacity: 10%;
-  /* margin: auto; */
-
 }
 
-main {
+/* main { */
   /* display: inline-block; */
 
   /* min-height: 55vh; */
-  flex:1;
-}
+  /* flex:1; */
+/* } */
 
 a,
 a:visited,
@@ -196,6 +181,7 @@ header {
   text-shadow: var(--text-shadow-hover);
   color: black;
   border: 2px solid white;
+  border-radius: 10px;
   /* outline: none; */
   /* background-color: #fff; */
 }
@@ -246,6 +232,7 @@ main {
 #regions:focus {
   /* color: black; */
   border: 2px solid white;
+  border-radius: 10px;
 }
 
 /* option:hover {
@@ -346,14 +333,9 @@ option {
   padding: 1rem;
   justify-content: space-between;
   height: 20rem;
-  /* height: 10rem; */
-  /* display: grid;
-  grid-template-rows: 3fr 1fr 2fr;
-  row-gap: 0.5rem; */
   color: rgba(204, 202, 200, 0.658);
   border: 1px solid rgba(255, 255, 255, 0.623);
   background: var(--glass-background);
-  /* background: rgba(90, 90, 90, 0.336); */
   overflow: hidden;
   border-radius: 0.3rem;
   transition: 0.6s;
@@ -365,8 +347,6 @@ option {
       rgba(0, 0, 0, 0)
     )
     1 100%;
-  /* width: 350px; */
-  /* margin: auto; */
 }
 
 .card h3 {
@@ -374,7 +354,6 @@ option {
 }
 
 .card:hover {
-  /* box-shadow: 0 0 11px rgba(255, 255, 255, 0.89); */
   color: #fff;
   background: var(--glass-background-hover);
   border-image: linear-gradient(to bottom, rgb(255, 255, 255), rgba(0, 0, 0, 0))
@@ -389,12 +368,8 @@ option {
 }
 
 .leftDetails {
-  /* max-width: 25%; */
-  /* padding: 0.4rem; */
   min-width: 30%;
   height: 15vh;
-  /* padding-right: 0; */
-  /* padding: 0 auto; */
 }
 
 .flagInfo {
@@ -415,7 +390,7 @@ option {
 
 footer {
   width: 100%;
-  /* position: absolute; */
+  position: absolute;
   /* bottom: 0; */
   margin-top: 2rem;
   padding: 1rem;
@@ -423,9 +398,17 @@ footer {
   display: block;
   text-align: center;
   color: var(--blue);
+  transition: 0.6s;
   /* min-height: 2rem; */
 }
 
+footer:hover {
+  color: aliceblue;
+  text-shadow: var(--text-shadow-hover);
+}
+/* for details footer */
+/* position: absolute;
+bottom: 0; */
 @media (max-width: 564px) {
   .back {
     margin-bottom: 2rem;
