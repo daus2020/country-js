@@ -27,15 +27,6 @@ const fetchData = async () => {
 
 const countryCards = (data) => {
   let cards = "";
-  if (data.length < 250) {
-    console.log(data.length);
-  }
-  // let localData = localStorage.getItem("allData");
-  // if (localData) {
-  //   data = JSON.parse(localStorage.getItem("allData"));
-  // }
-  console.log(typeof data);
-  console.log(data);
 
   data.forEach((el) => {
     let population = new Intl.NumberFormat("de-DE").format(el.population);
