@@ -202,7 +202,7 @@ const filterCountry = allData.filter((el) => {
             <p><b>${
               currency.length === 1 || currency === "Indefinida" ? "Moneda" : "Monedas"
               // currency.length === 1 || currencies ? "Moneda" : "Monedas"
-            }: </b> ${ curr } </p>
+            }: </b> ${ currency } </p>
 
             <p><b>${
               currSymbol.length === 1 || currency === "Indefinida" ? "Símbolo moneda" : "Símbolos moneda"
