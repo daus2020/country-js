@@ -11,38 +11,118 @@ const filterCountry = allData.filter((el) => {
 
     const { currencies, languages } = el;
 
-    console.log(Object.values(currencies));
-    console.log(Object.keys(currencies));
-    console.log(Object.keys(currencies)[0].name);
-    console.log(Object.keys(currencies).name);
-    // console.log(Object.values(currencies).name);
-    console.log(Object.keys(currencies).length);
-    // let currency = Object.keys(currencies).name;
+    if (Object.hasOwn(el, 'currencies')) {
+      console.log(Object.values(currencies));
+      console.log(Object.keys(currencies));
+      console.log(Object.keys(currencies)[0].name);  // undefined
+      console.log(Object.keys(currencies).name);     // undefined
+      // console.log(Object.values(currencies).name);
+      console.log(Object.keys(currencies).length);
+      // let currency = Object.keys(currencies).name;
+    }
+    console.log(el)
 
-    let currencyKeys = Object.keys(currencies);
-    console.log(currencyKeys);
-    // console.log(currencies["CLP"].name);
-    // whatever the "index" it is, I need its .name
-    let currencyName = currencyKeys.map((key) => currencies[key].name);
-    let currencySymbol = currencyKeys.map((key) => currencies[key].symbol);
-    console.log(currencyName);
-    console.log(currencySymbol);
+    // if (!(Object.hasOwn(el, 'currencies'))) {
+    //   // Object.values(currencies) = [{0: {
+    //   //   name: "Indefinido", symbol: ""
+    //   // }
+    //   // }]
+    //   const source = 
+    //   {
+    //     currencies : {
+    //       UDF :  
+    //       {
+    //         name: "Indefinido",
+    //         symbol: " ",
+    //       }
+    //     }
+    //   }
+    //   const returnedTarget = Object.assign(el, source);
+    //   console.log(el.currencies);
+    //   console.log(el.currencies.UDF.name);
+    //   console.log(el.currencies.UDF.symbol);
+    //   console.log(el);
+    //   // console.log(Object.values(currencies)); //cannot convert undefined ...
+    //   // console.log(Object.values(currencies))
+    // }
+    console.log(el);
+    console.log(el.currencies);
+    // console.log(el.keys(currencies));
 
-    let currency = currencyName;
-    if (currency.length > 1) {
-      currency = JSON.stringify(currencyName)
-        .replace(/["\[\]]/g, "")
-        .split(",")
-        .join(", ");
+    currencies ? mapKeys() : assignCurrenciesLanguages();
+    // if (currencies) {
+    function mapKeys() {
+      console.log(Object.keys(currencies));
+      let currencyKeys = Object.keys(currencies);
+      console.log(currencyKeys);
+      // console.log(currencies["CLP"].name);
+      // whatever the "index" it is, I need its .name
+      let currencyName = currencyKeys.map((key) => currencies[key].name);
+      let currencySymbol = currencyKeys.map((key) => currencies[key].symbol);
+      console.log(currencyName);
+      console.log(currencySymbol);
+  
+      let currency = currencyName;
+      if (currency.length > 1) {
+        currency = JSON.stringify(currencyName)
+          .replace(/["\[\]]/g, "")
+          .split(",")
+          .join(", ");
+      }
+  
+      let symbol = currencySymbol;
+      if (symbol.length > 1) {
+        symbol = JSON.stringify(currencySymbol)
+          .replace(/["\[\]]/g, "")
+          .split(",")
+          .join(", ");
+      }
+      console.log(currency)
+
+      let language = Object.values(languages);
+
+      // Only if country has more than one language
+      if (language.length > 1) {
+        language = JSON.stringify(language)
+          .replace(/["\[\]]/g, "")
+          .split(",")
+          .join(", ");
+      }
+      console.log(language)
+
+
+
+      printDetails(currency, symbol, language)
     }
 
-    let symbol = currencySymbol;
-    if (symbol.length > 1) {
-      symbol = JSON.stringify(currencySymbol)
-        .replace(/["\[\]]/g, "")
-        .split(",")
-        .join(", ");
+    function assignCurrenciesLanguages() {
+      // const source = 
+      // {
+      //   borders : [],
+      //   currencies : {
+      //     UDF :  
+      //     {
+      //       name: "Indefinido",
+      //       symbol: " ",
+      //     }
+      //   },
+      //   languages : {
+      //     udf : "Indefinido"
+      //   }
+      // }
+      // const returnedTarget = Object.assign(el, source);
+      // console.log(el.currencies);
+      // console.log(el.currencies.UDF.name);
+      // console.log(el.currencies.UDF.symbol);
+      // console.log(el.languages.udf);
+      // console.log(el);
+      // Hardcode for antartic
+      printDetails("Indefinida", "", "Indefinido")
     }
+      // Object.hasOwn(el, 'UDF') ? console.log(el.currencies.UDF.name) : console.log(currency);
+    // }
+    
+    // console.log(Object.keys(currencies));
 
     // let currency = JSON.stringify(currencyName)
     //   .replace(/["\[\]]/g, "")
@@ -61,7 +141,7 @@ const filterCountry = allData.filter((el) => {
     // return currency;
     // }
     // let currency = Object.keys(currencies);
-    console.log(currency);
+    // console.log(currency);
 
     // let currsInWords = currency.map((index) => currencies[index].name);
     // console.log(currsInWords);
@@ -94,21 +174,15 @@ const filterCountry = allData.filter((el) => {
     // only if Object.keys(languages).length > 1
     // const languageQuotes = JSON.stringify(el.languages[keyLanguage]);
     // const language = languageQuotes.replace(/["]/g, "");
-
-    let language = Object.values(languages);
-
-    // Only if country has more than one language
-    if (language.length > 1) {
-      language = JSON.stringify(language)
-        .replace(/["\[\]]/g, "")
-        .split(",")
-        .join(", ");
-    }
+    console.log(el)
 
     // format population number with thousands separator (.)
-    const population = new Intl.NumberFormat("de-DE").format(el.population);
-
-    countryCardTemplate = `
+    
+    function printDetails(currency, currSymbol, lang) {
+      
+      const population = new Intl.NumberFormat("de-DE").format(el.population);
+      console.log(population)
+      let countryCardTemplate = `
         <div class="leftDetails">
           <img src="${el.flags.svg}" alt="country flag" class="flagInfo" />
         </div>
@@ -117,28 +191,32 @@ const filterCountry = allData.filter((el) => {
             <h3>${pais}</h3>
             <p><b>Capital: </b> ${el.capital}</p>
             <p><b>Región: </b> ${el.region}</p>
-            <p><b>Sub-región: </b> ${el.subregion}</p>
+            <p><b>Sub-región: </b> ${el.subregion ? el.subregion : "Indefinida"}</p>
           </div>
           <div class="innerRight">
             <p><b>Población: </b> ${population}</p>
             <p><b>${
-              language.length === 1 ? "Idioma" : "Idiomas"
-            }: </b> ${language}</p>
+              lang.length === 1 ? "Idioma" : "Idiomas"
+            }: </b> ${lang}</p>
 
             <p><b>${
-              currency.length === 1 ? "Moneda" : "Monedas"
-            }: </b> ${currency} </p>
+              currency.length === 1 || currency === "Indefinida" ? "Moneda" : "Monedas"
+              // currency.length === 1 || currencies ? "Moneda" : "Monedas"
+            }: </b> ${ curr } </p>
 
             <p><b>${
-              symbol.length === 1 ? "Símbolo moneda" : "Símbolos moneda"
-            }: </b> ${symbol}</p>
+              currSymbol.length === 1 || currency === "Indefinida" ? "Símbolo moneda" : "Símbolos moneda"
+              // currSymbol.length === 1 || el.currencies ? "Símbolo moneda" : "Símbolos moneda"
+            }: </b> ${currSymbol}</p>
 
-            <p><b>Frontera(s): </b> ${el.borders}</p>
+            <p><b>Fronteras: </b> ${el.borders ? el.borders : "Indefinida"}</p>
           </div>
         </div>
           `;
+
+      details.innerHTML = countryCardTemplate;
+    }
   }
-  details.innerHTML = countryCardTemplate;
+  // details.innerHTML = countryCardTemplate;
 });
 
-// <p><b>Moneda(s): </b> ${Object.values(currsInWords)}</p>
