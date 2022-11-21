@@ -17,13 +17,10 @@ const filterCountry = allData.filter((el) => {
     function mapKeys() {
       console.log(Object.keys(currencies));
       let currencyKeys = Object.keys(currencies);
-      console.log(currencyKeys);
-      // console.log(currencies["CLP"].name);
+
       // whatever the "index" it is, I need its .name
       let currencyName = currencyKeys.map((key) => currencies[key].name);
       let currencySymbol = currencyKeys.map((key) => currencies[key].symbol);
-      console.log(currencyName);
-      console.log(currencySymbol);
   
       let currency = currencyName;
       if (currency.length > 1) {
@@ -40,7 +37,6 @@ const filterCountry = allData.filter((el) => {
           .split(",")
           .join(", ");
       }
-      console.log(currency)
 
       let language = Object.values(languages);
 
@@ -51,9 +47,6 @@ const filterCountry = allData.filter((el) => {
           .split(",")
           .join(", ");
       }
-      console.log(language)
-
-
 
       printDetails(currency, symbol, language)
     }
@@ -90,12 +83,10 @@ const filterCountry = allData.filter((el) => {
 
             <p><b>${
               currency.length === 1 || currency === "Indefinida" ? "Moneda" : "Monedas"
-              // currency.length === 1 || currencies ? "Moneda" : "Monedas"
             }: </b> ${ currency } </p>
 
             <p><b>${
               currencySymbol.length === 1 || currency === "Indefinida" ? "Símbolo moneda" : "Símbolos moneda"
-              // currencySymbol.length === 1 || el.currencies ? "Símbolo moneda" : "Símbolos moneda"
             }: </b> ${currencySymbol}</p>
 
             <p><b>Fronteras: </b> ${el.borders ? el.borders : "Indefinida"}</p>

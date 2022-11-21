@@ -15,11 +15,8 @@ const fetchData = async () => {
     const res = await fetch(URL); // sending request
     const data = await res.json(); // converting data to json
     countryCards(data);
+    console.log(data);
     localStorage.setItem("allData", JSON.stringify(data)); //store data in localstorage
-    // userCountryLetters(data);
-    // userRegion(data);
-    // clickCard(data);
-    console.log("HI TRY fetch");
   } catch (error) {
     console.log(error);
   }
@@ -30,6 +27,10 @@ const countryCards = (data) => {
 
   data.forEach((el) => {
     let population = new Intl.NumberFormat("de-DE").format(el.population);
+
+    // let population = toLocaleString(el.population);
+    console.log("localeString");
+    // let population = new Intl.NumberFormat("de-DE").format(el.population);
     cards += `
     <a href="details.html?name=${el.translations.spa.common}"> 
       <article class="card">
