@@ -67,7 +67,7 @@ const filterCountry = allData.filter((el) => {
       }
 
       let border
-      borders ? border = Object.values(borders) : border = false;
+      borders ? border = Object.values(borders) : border = "";
       
       console.log(border);
       if (border) {
@@ -124,7 +124,11 @@ const filterCountry = allData.filter((el) => {
               currencySymbol.length === 1 || currency === "Indefinida" ? "Símbolo moneda" : "Símbolos moneda"
             }: </b> ${currencySymbol}</p>
 
-            <p><b>Fronteras: </b> ${border ? border.map(el => el[0]) : "Indefinida"}</p>
+            <p><b>Fronteras: </b> ${border ? border.map(el => 
+              `<div class="tooltip">${el[0]}
+                <span class="tooltiptext">${el[1]}</span>
+              </div>`
+              ) : "Indefinida"}</p>
             </div>
             </div>
             `;
