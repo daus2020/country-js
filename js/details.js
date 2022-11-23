@@ -6,26 +6,13 @@ const allData = JSON.parse(localStorage.getItem("allData"));
 
 console.log(allData);
 
-// data indexed by cca3 with country name as values
+// data indexed by cca3 as keys (countryName abrev. in 3 capital letters) 
+// with country name translated to spa as values
 const indexedByCca3 = allData.reduce((acc, el) => ({
   ...acc,
   [el.cca3]: el.translations.spa.common,
 }), {});
 console.log(indexedByCca3);
-
-function getNameByCca3(myCca3) {
-  // return indexedByCca3[myCca3].translations.spa.common // no idea why doesn't work
-  return indexedByCca3[myCca3]
-}
-
-// let someArrayOfCca3 = [ 'ALB', 'CHL', 'ESH'] 
-
-// const theNames = someArrayOfCca3.map(el => el)
-// let theNames = someArrayOfCca3.map(el => getNameByCca3('CHL'))
-// let theNames = someArrayOfCca3.map(key => getNameByCca3(key))
-// console.log(theNames);
-// console.log(getNameByCca3('MDV'));
-
 
 
 let countryCardTemplate = "";
@@ -33,8 +20,8 @@ let countryCardTemplate = "";
 const filterCountry = allData.filter((el) => {
   if (el.translations.spa.common === queryName) {
     const pais = el.translations.spa.common;
-
-    const { currencies, languages } = el;
+    console.log(pais);
+    const { currencies, languages, borders } = el;
 
 
     currencies ? mapKeys() : assignCurrenciesLanguages();
@@ -74,17 +61,39 @@ const filterCountry = allData.filter((el) => {
           .join(", ");
       }
 
-      printDetails(currency, symbol, language)
+      function getNameByCca3(myCca3) {
+      // return indexedByCca3[myCca3].translations.spa.common // no idea why doesn't work
+        return indexedByCca3[myCca3]
+      }
+
+      let border
+      borders ? border = Object.values(borders) : border = false;
+      
+      console.log(border);
+      if (border) {
+        border = el.borders.map((key => [ key, getNameByCca3(key) ]))
+        console.log(border);
+        
+      } 
+      console.log(border);
+
+
+
+      printDetails(currency, symbol, language, border)
     }
+
+    // when hover cca3 (borders) tooltip appears with the correspon country names in 
+
+    // el.borders ? el.borders.map((key => getNameByCca3(key)))
 
     function assignCurrenciesLanguages() {
  
       // Hardcode for antartic (special case). There are 2 others countries without currencies (not cover).
-      printDetails("Indefinida", "", "Indefinido")
+      printDetails("Indefinida", "", "Indefinido", "")
     }
 
     
-    function printDetails(currency, currencySymbol, lang) {
+    function printDetails(currency, currencySymbol, lang, border) {
       
       // format population number with thousands separator (.)
       const population = new Intl.NumberFormat("de-DE").format(el.population);
@@ -115,15 +124,15 @@ const filterCountry = allData.filter((el) => {
               currencySymbol.length === 1 || currency === "Indefinida" ? "Símbolo moneda" : "Símbolos moneda"
             }: </b> ${currencySymbol}</p>
 
-            <p><b>Fronteras: </b> ${el.borders ? el.borders.map((key => getNameByCca3(key))) : "Indefinida"}</p>
+            <p><b>Fronteras: </b> ${border ? border.map(el => el[0]) : "Indefinida"}</p>
             </div>
             </div>
             `;
             
             details.innerHTML = countryCardTemplate;
           }
-        }
-      });
+  }
+});
       
       
       // <p><b>Fronteras: </b> ${el.borders ? el.borders : "Indefinida"}</p>
