@@ -2,7 +2,32 @@ const details = document.getElementById("details");
 const params = new URLSearchParams(window.location.search);
 const queryName = params.get("name");
 
-let allData = JSON.parse(localStorage.getItem("allData"));
+const allData = JSON.parse(localStorage.getItem("allData"));
+
+console.log(allData);
+
+// data indexed by cca3 with country name as values
+const indexedByCca3 = allData.reduce((acc, el) => ({
+  ...acc,
+  [el.cca3]: el.translations.spa.common,
+}), {});
+console.log(indexedByCca3);
+
+function getNameByCca3(myCca3) {
+  // return indexedByCca3[myCca3].translations.spa.common // no idea why doesn't work
+  return indexedByCca3[myCca3]
+}
+
+// let someArrayOfCca3 = [ 'ALB', 'CHL', 'ESH'] 
+
+// const theNames = someArrayOfCca3.map(el => el)
+// let theNames = someArrayOfCca3.map(el => getNameByCca3('CHL'))
+// let theNames = someArrayOfCca3.map(key => getNameByCca3(key))
+// console.log(theNames);
+// console.log(getNameByCca3('MDV'));
+
+
+
 let countryCardTemplate = "";
 
 const filterCountry = allData.filter((el) => {
@@ -23,6 +48,7 @@ const filterCountry = allData.filter((el) => {
       let currencySymbol = currencyKeys.map((key) => currencies[key].symbol);
   
       let currency = currencyName;
+      // Only if country has more than one currency
       if (currency.length > 1) {
         currency = JSON.stringify(currencyName)
           .replace(/["\[\]]/g, "")
@@ -31,6 +57,7 @@ const filterCountry = allData.filter((el) => {
       }
   
       let symbol = currencySymbol;
+      // Only if country has more than one currency
       if (symbol.length > 1) {
         symbol = JSON.stringify(currencySymbol)
           .replace(/["\[\]]/g, "")
@@ -39,7 +66,6 @@ const filterCountry = allData.filter((el) => {
       }
 
       let language = Object.values(languages);
-
       // Only if country has more than one language
       if (language.length > 1) {
         language = JSON.stringify(language)
@@ -89,13 +115,15 @@ const filterCountry = allData.filter((el) => {
               currencySymbol.length === 1 || currency === "Indefinida" ? "Símbolo moneda" : "Símbolos moneda"
             }: </b> ${currencySymbol}</p>
 
-            <p><b>Fronteras: </b> ${el.borders ? el.borders : "Indefinida"}</p>
-          </div>
-        </div>
-          `;
-
-      details.innerHTML = countryCardTemplate;
-    }
-  }
-});
-
+            <p><b>Fronteras: </b> ${el.borders ? el.borders.map((key => getNameByCca3(key))) : "Indefinida"}</p>
+            </div>
+            </div>
+            `;
+            
+            details.innerHTML = countryCardTemplate;
+          }
+        }
+      });
+      
+      
+      // <p><b>Fronteras: </b> ${el.borders ? el.borders : "Indefinida"}</p>
