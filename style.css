@@ -339,7 +339,7 @@ footer:hover {
 /**** STYLES FOR details.html ****/
 .back {
   margin-top: 0.2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 }
 
 #back {
@@ -349,8 +349,8 @@ footer:hover {
   font-size: 0.9rem;
   font-weight: bold;
   background-color: var(--glass-background);
-  border-radius: 40px;
-  margin: 10px 0;
+  border-radius: 24%;
+  margin: 4px 0;
 }
 #back:hover {
   color: #fff;
@@ -364,6 +364,7 @@ footer:hover {
 }
 
 .inner {
+  max-width: 280px;
 }
 .countryInfo {
   height: 40vh;
@@ -372,9 +373,9 @@ footer:hover {
   background: var(--glass-background);
   justify-content: space-around;
   align-items: center;
-  padding: 0.3rem;
+  /* padding: 0.3rem; */
   min-height: 300px;
-  max-width: 450px;
+  max-width: 550px;
 }
 
 .leftDetails {

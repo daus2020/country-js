@@ -103,7 +103,7 @@ const filterCountry = allData.filter((el) => {
         <div class="leftDetails">
           <img src="${el.flags.svg}" alt="country flag" class="flagInfo" />
         </div>
-        <div className="inner">
+        <div class="inner">
           <div class="innerLeft">
             <h3>${pais}</h3>
             <p><b>Capital: </b> ${el.capital}</p>
