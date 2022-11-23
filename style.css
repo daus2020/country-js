@@ -358,6 +358,13 @@ footer:hover {
   border-radius: 25px;
 }
 
+.flagInfo {
+  height: 100%;
+  max-width: 200px;
+}
+
+.inner {
+}
 .countryInfo {
   height: 40vh;
   border-radius: 160px;
@@ -366,8 +373,8 @@ footer:hover {
   justify-content: space-around;
   align-items: center;
   padding: 0.3rem;
-  max-width: 800px;
   min-height: 300px;
+  max-width: 450px;
 }
 
 .leftDetails {
@@ -378,7 +385,8 @@ footer:hover {
 /* Tooltip container */
 .tooltip {
   position: relative;
-  display: inline-block;
+  display: list-item block;
+  font-size: 0.7rem;
 }
 
 /* Tooltip text */

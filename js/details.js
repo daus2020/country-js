@@ -125,9 +125,9 @@ const filterCountry = allData.filter((el) => {
             }: </b> ${currencySymbol}</p>
 
             <p><b>Fronteras: </b> ${border ? border.map(el => 
-              `<div class="tooltip">${el[0]}
+              `<span class="tooltip">${el[0]}
                 <span class="tooltiptext">${el[1]}</span>
-              </div>`
+              </span>`
               ) : "Indefinida"}</p>
             </div>
             </div>
